@@ -6,5 +6,5 @@ Mobile-friendly version of the [Clojure/conj 2019 schedule].
 
 [ISC License]
 
-[Clojure/conj 2019 schedule]:https://oakmac.com/conj2019-schedule
+[Clojure/conj 2019 schedule]:https://cljs.info/conj2019-schedule
 [ISC License]:LICENSE.md

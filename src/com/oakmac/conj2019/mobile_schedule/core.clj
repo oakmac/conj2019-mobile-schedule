@@ -7,6 +7,42 @@
     [hiccup.def :refer [defhtml]]
     [hiccup.page :as hp]))
 
+;; TODO: this format would probably be easier...
+; (def friday
+;   {"2019-11-22 0900"
+;    {:non-talk? true
+;     :start-end "9:00 - 9:10"
+;     :title "Welcome"}
+;
+;    "2019-11-22 0910"
+;    {:start-end "9:10 - 9:50"
+;     :speaker1 {:name "Gene Kim"
+;                :title "TBD"
+;                :url "https://2019.clojure-conj.org/speaker-gene-kim/"}}
+;
+;    "2019-11-22 1000"
+;    {:start-end "10:00 - 10:40"
+;     :speaker1 {:name "Chris Nuernberger"
+;                :title "Extending Clojure with Python"
+;                :url "https://2019.clojure-conj.org/chris-nuernberger/"}
+;     :speaker2 {:name "Avi Flax"
+;                 :title "(Architecture) Diagrams as Data"
+;                 :url "https://2019.clojure-conj.org/speaker-avi-flax/"}}
+;
+;    "2019-11-22 1050"
+;    {:start-end "10:50 - 11:30"
+;     :speaker1 {:name "Alexander Yakushev"
+;                :title "A New Age of JVM Garbage Collectors"
+;                :url "https://2019.clojure-conj.org/speaker-alexander-yakushev/"}
+;     :speaker2 {:name "Chris Oakman"
+;                 :title "Probabilistic Record Linkage of Hospital Patients"
+;                 :url "https://2019.clojure-conj.org/speaker-chris-oakman/"}}
+;
+;    "2019-11-22 1130"
+;    {:non-talk? true
+;     :start-end "11:30 - 1:00pm"
+;     :title "Lunch"}})
+
 (def schedule
  {:nov-21
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
@@ -60,21 +96,25 @@
 
   :nov-22
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
+
    ["9:10 - 9:50AM" [{:speaker "Gene Kim"
                       :title "TBD"
                       :link "https://2019.clojure-conj.org/speaker-gene-kim/"}]]
+
    ["10:00 - 10:40AM" [{:speaker "Chris Nuernberger"
                         :title "Extending Clojure with Python"
                         :link "https://2019.clojure-conj.org/chris-nuernberger/"}
                        {:speaker "Avi Flax"
                         :title "(Architecture) Diagrams as Data"
                         :link "https://2019.clojure-conj.org/speaker-avi-flax/"}]]
+
    ["10:50 - 11:30AM" [{:speaker "Alexander Yakushev"
                         :title "A New Age of JVM Garbage Collectors"
                         :link "https://2019.clojure-conj.org/speaker-alexander-yakushev/"}
                        {:speaker "Chris Oakman"
                         :title "Probabilistic Record Linkage of Hospital Patients"
                         :link "https://2019.clojure-conj.org/speaker-chris-oakman/"}]]
+
    ["11:30 - 1:00PM" [{:speaker "Lunch" :title ""}]]
    ["1:00 - 1:40PM" [{:speaker "Pier Federico Gherardini & Ben Kamphaus"
                       :title "Clojure Where it Counts: Tidying Data Science Workflows"
@@ -124,9 +164,19 @@
            speaker)]
    [:div {:style "font-size: 14px"} title]])
 
+(defn- build-search-txt [speakers]
+  (let [first-speaker (first speakers)
+        second-speaker (second speakers)]
+    (-> (str (str/lower-case (:speaker first-speaker ""))
+             (str/lower-case (:title first-speaker ""))
+             (str/lower-case (:speaker second-speaker ""))
+             (str/lower-case (:title second-speaker "")))
+        (str/replace " " ""))))
+
 (defhtml table-row [[time speakers]]
   (let [two-tracks? (= 2 (count speakers))]
-    [:tr
+    [:tr {:class "searchable"
+          :data-searchtxt (build-search-txt speakers)}
       [:td {:style "text-align: left; font-size: 14px;"} time]
       [:td (when-not two-tracks? {:colspan 2}) (talk-cell (first speakers))]
       (when two-tracks?
@@ -154,36 +204,46 @@
 (def zepto-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js")
 (def zepto-integrity-hash "sha256-vrn14y7WH7zgEElyQqm2uCGSQrX/xjYDjniRUQx3NyU=")
 
+(def moment-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js")
+(def moment-integrity-hash "sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=")
+
 (defhtml clientside-js []
   [:script {:src zepto-cdn-url :integrity zepto-integrity-hash :crossorigin "anonymous"}]
+  [:script {:src moment-cdn-url :integrity moment-integrity-hash :crossorigin "anonymous"}]
   [:script {:src "index.js"}])
 
 (defhtml toolbar []
   [:div {:style "display: flex; margin-top: -10px; margin-bottom: 20px;"}
     [:div {:style "flex: 3;"}
-      [:input#searchBar.input {:type "text" :placeholder "Search …"}]]
-    [:div {:style "flex: 1; margin-left: 10px"}
-      [:button#hidePastEventsBtn.button.is-secondary {:style "display:none"} "Hide Past Events"]
-      [:button#showPastEventsBtn.button.is-secondary "Show Past Events"]]])
+      [:input#searchBar.input {:type "text" :placeholder "Search …"}]]])
+    ; [:div {:style "flex: 1; margin-left: 10px"}
+    ;   [:button#hidePastEventsBtn.button.is-secondary {:style "display:none"} "Hide Past Events"]
+    ;   [:button#showPastEventsBtn.button.is-secondary "Show Past Events"]]])
+
+(defhtml no-search-results-msg []
+  [:div#noSearchResultsMsg.notification {:style "display: none;"}
+    "No search results :-("])
+
+(defhtml day-section [day-title schedule]
+  [:div.day-section {:style "margin-bottom: 20px"}
+    [:h4.title.is-4 day-title]
+    (schedule-table schedule)])
 
 (defhtml body []
   [:body
-    [:section.section {:style "padding-top: 15px"}
+    [:section.section {:style "padding: 1rem"}
       [:div.container
         [:h1.title.is-3 "2019 Clojure/conj Schedule"]
         [:h5.subtitle.is-6
           [:a {:href official-schedule-url} "Official Schedule"]
           [:span {:style "display: inline-block; margin: 0 10px;"} "—"]
           [:a {:href speakers-list-url} "Speakers List"]]
-        ; (toolbar)
-        ; [:h4.title.is-4 "Wednesday - Nov 20, 2019"]
-        ; (schedule-table (:nov-20 schedule))
-        [:h4.title.is-4 "Thursday - Nov 21, 2019"]
-        (schedule-table (:nov-21 schedule))
-        [:h4.title.is-4 "Friday - Nov 22, 2019"]
-        (schedule-table (:nov-22 schedule))
-        [:h4.title.is-4 "Saturday - Nov 23, 2019"]
-        (schedule-table (:nov-23 schedule))]]
+        (toolbar)
+        (no-search-results-msg)
+        ; (day-section "Wednesday - Nov 20, 2019" (:nov-20 schedule))
+        (day-section "Thursday - Nov 21, 2019" (:nov-21 schedule))
+        (day-section "Friday - Nov 22, 2019" (:nov-22 schedule))
+        (day-section "Saturday - Nov 23, 2019" (:nov-23 schedule))]]
     (clientside-js)])
 
 (def bulma-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
