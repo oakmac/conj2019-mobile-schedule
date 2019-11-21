@@ -9,7 +9,7 @@
 
 (def schedule
  {:nov-21
-  [["9:00 - 9:10AM" [{:speaker "Welcome"}]]
+  [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
    ["9:10 - 9:50AM"
     [{:speaker "Derek Troy-West",
       :title "Follow the Data: Product Development in Clojure",
@@ -24,12 +24,12 @@
       :link "https://2019.clojure-conj.org/speaker-lucas-cavalcanti/"}]]
    ["11:30 - 1:00PM"
     [{:speaker "Lunch",
-      :title "Food trucks on convention center plaza"}]]
+      :title "Food trucks on convention center plaza"
+      :non-talk? true}]]
    ["1:00 - 1:40PM"
     [{:speaker "Santiago Gepigon III",
       :title "piggy: Specs for Breaking Changes",
-      :link
-      "https://2019.clojure-conj.org/speaker-santiago-gepigon-iii/"}
+      :link "https://2019.clojure-conj.org/speaker-santiago-gepigon-iii/"}
      {:speaker "Alexander Oloo",
       :title "From Lazy Lisper to Confident Clojurist",
       :link "https://2019.clojure-conj.org/alexander-oloo/"}]]
@@ -47,7 +47,7 @@
      {:speaker "John Collins",
       :title "Clojure for Robotics",
       :link "https://2019.clojure-conj.org/speaker-john-collins/"}]]
-   ["3:20 - 3:50PM" [{:speaker "Break" :title ""}]]
+   ["3:20 - 3:50PM" [{:speaker "Break" :title "" :non-talk? true}]]
    ["3:50 - 4:30PM"
     [{:speaker "Dragan Djuric",
       :title "Interactive Programming for Artificial Intelligence",
@@ -56,11 +56,13 @@
     [{:speaker "Stuart Halloway",
       :title "Sherlock Holmes, Consulting Developer",
       :link "https://2019.clojure-conj.org/speaker-stuart-halloway"}]]
-   ["7:00 - 10:00PM" [{:speaker "Unsessions / Lightning Talks"}]]]
+   ["7:00 - 10:00PM" [{:speaker "Unsessions / Lightning Talks" :non-talk? true}]]]
 
   :nov-22
-  [["9:00 - 9:10AM" [{:speaker "Welcome"}]]
-   ["9:10 - 9:50AM" [{:speaker "Gene Kim" :talk "TBD"}]]
+  [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
+   ["9:10 - 9:50AM" [{:speaker "Gene Kim"
+                      :title "TBD"
+                      :link "https://2019.clojure-conj.org/speaker-gene-kim/"}]]
    ["10:00 - 10:40AM" [{:speaker "Chris Nuernberger"
                         :title "Extending Clojure with Python"
                         :link "https://2019.clojure-conj.org/chris-nuernberger/"}
@@ -92,28 +94,31 @@
                      {:speaker "Scarlet Spectacular"
                       :title "Ghost in the Generative Shell"
                       :link "https://2019.clojure-conj.org/speaker-eno-compton/"}]]
-   ["3:20 - 3:50PM" [{:speaker "Break" :title ""}]]
+   ["3:20 - 3:50PM" [{:speaker "Break" :title "" :non-talk? true}]]
    ["3:50 - 4:30PM" [{:speaker "Thomas Gebert & Nick Misturak"
                       :title "Distributed Hash Tables, Video, and Fun!"
                       :link "https://2019.clojure-conj.org/speaker-thomas-gebert/"}]]
    ["4:40 - 5:30PM" [{:speaker "Matthew Flatt"
                       :title "A Racket Perspective on Research, Education, and Production"
                       :link "https://2019.clojure-conj.org/keynote-speaker-matthew-flatt/"}]]
-   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade"}]]]
+   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade" :non-talk? true}]]]
 
   :nov-23
-  [["9:00 - 9:10AM" [{:speaker "welcome"}]]
+  [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
    ["9:10 - 9:50AM" [{:speaker "Philipp Meier"
-                      :title "A magic trashcan - microprocessors for full stack developers"}]]
+                      :title "A magic trashcan - microprocessors for full stack developers"
+                      :link "https://2019.clojure-conj.org/speaker-philipp-meier/"}]]
    ["10:00 - 10:40AM" [{:speaker "Sara Kimmich"
-                        :title "Rapid Prototyping for Software Development"}]]
+                        :title "Rapid Prototyping for Software Development"
+                        :link "https://2019.clojure-conj.org/speaker-sara-kimmich/"}]]
    ["10:50 - 11:30AM" [{:speaker "Ulrich Schaechtle"
-                        :title "Inference QL:  Al for data engineers in Clojure"}]]
+                        :title "Inference QL:  Al for data engineers in Clojure"
+                        :link "https://2019.clojure-conj.org/speaker-ulrich-schaechtle/"}]]
    ["11:40 - 12:10PM" [{:speaker "Alex Miller"
                         :title "Composable Tools"}]]]})
 
-(defhtml talk-cell [{:keys [speaker title link]}]
-  [:div
+(defhtml talk-cell [{:keys [speaker title link non-talk?]}]
+  [:div (when non-talk? {:style "font-style: italic;"})
    [:div (if link
            [:a {:href link} speaker]
            speaker)]
@@ -122,7 +127,7 @@
 (defhtml table-row [[time speakers]]
   (let [two-tracks? (= 2 (count speakers))]
     [:tr
-      [:td {:style "text-align: center"} time]
+      [:td {:style "text-align: left; font-size: 14px;"} time]
       [:td (when-not two-tracks? {:colspan 2}) (talk-cell (first speakers))]
       (when two-tracks?
         [:td (talk-cell (second speakers))])]))
@@ -170,7 +175,7 @@
           [:a {:href official-schedule-url} "Official Schedule"]
           [:span {:style "display: inline-block; margin: 0 10px;"} "—"]
           [:a {:href speakers-list-url} "Speakers List"]]
-        (toolbar)
+        ; (toolbar)
         ; [:h4.title.is-4 "Wednesday - Nov 20, 2019"]
         ; (schedule-table (:nov-20 schedule))
         [:h4.title.is-4 "Thursday - Nov 21, 2019"]
