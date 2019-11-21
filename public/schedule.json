@@ -1,0 +1,314 @@
+{
+  "nov-21": [
+    [
+      "9:00 - 9:10AM",
+      [
+        {
+          "speaker": "Welcome",
+          "non-talk?": true
+        }
+      ]
+    ],
+    [
+      "9:10 - 9:50AM",
+      [
+        {
+          "speaker": "Derek Troy-West",
+          "title": "Follow the Data: Product Development in Clojure",
+          "link": "https://2019.clojure-conj.org/speaker-derek-troy-west/"
+        }
+      ]
+    ],
+    [
+      "10:00 - 10:40AM",
+      [
+        {
+          "speaker": "Ariel Ortiz",
+          "title": "The Hitchhikers Guide to Multiparadigm Programming",
+          "link": "https://2019.clojure-conj.org/speaker-ariel-ortiz/"
+        }
+      ]
+    ],
+    [
+      "10:50 - 11:30AM",
+      [
+        {
+          "speaker": "Lucas Cavalcanti",
+          "title": "Complex Made Bearable",
+          "link": "https://2019.clojure-conj.org/speaker-lucas-cavalcanti/"
+        }
+      ]
+    ],
+    [
+      "11:30 - 1:00PM",
+      [
+        {
+          "speaker": "Lunch",
+          "title": "Food trucks on convention center plaza",
+          "non-talk?": true
+        }
+      ]
+    ],
+    [
+      "1:00 - 1:40PM",
+      [
+        {
+          "speaker": "Santiago Gepigon III",
+          "title": "piggy: Specs for Breaking Changes",
+          "link": "https://2019.clojure-conj.org/speaker-santiago-gepigon-iii/"
+        },
+        {
+          "speaker": "Alexander Oloo",
+          "title": "From Lazy Lisper to Confident Clojurist",
+          "link": "https://2019.clojure-conj.org/alexander-oloo/"
+        }
+      ]
+    ],
+    [
+      "1:50 - 2:30PM",
+      [
+        {
+          "speaker": "Mark Bastian",
+          "title": "Defeating the Four Horsemen of the Coding Apocalypse",
+          "link": "https://2019.clojure-conj.org/speaker-mark-bastian"
+        },
+        {
+          "speaker": "J.D. Hollis",
+          "title": "Datomic with Terraform",
+          "link": "https://2019.clojure-conj.org/speaker-j-d-hollis/"
+        }
+      ]
+    ],
+    [
+      "2:40 - 3:20PM",
+      [
+        {
+          "speaker": "Dom Kiva-Meyer",
+          "title": "Fixing Airplanes with Clojure",
+          "link": "https://2019.clojure-conj.org/dom-kiva-meyer/"
+        },
+        {
+          "speaker": "John Collins",
+          "title": "Clojure for Robotics",
+          "link": "https://2019.clojure-conj.org/speaker-john-collins/"
+        }
+      ]
+    ],
+    [
+      "3:20 - 3:50PM",
+      [
+        {
+          "speaker": "Break",
+          "title": "",
+          "non-talk?": true
+        }
+      ]
+    ],
+    [
+      "3:50 - 4:30PM",
+      [
+        {
+          "speaker": "Dragan Djuric",
+          "title": "Interactive Programming for Artificial Intelligence",
+          "link": "https://2019.clojure-conj.org/speaker-dragan-djuric/"
+        }
+      ]
+    ],
+    [
+      "4:40 - 5:30PM",
+      [
+        {
+          "speaker": "Stuart Halloway",
+          "title": "Sherlock Holmes, Consulting Developer",
+          "link": "https://2019.clojure-conj.org/speaker-stuart-halloway"
+        }
+      ]
+    ],
+    [
+      "7:00 - 10:00PM",
+      [
+        {
+          "speaker": "Unsessions / Lightning Talks",
+          "link": "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions"
+        }
+      ]
+    ]
+  ],
+  "nov-22": [
+    {
+      "time": "2019-11-22 0900",
+      "start-end": "9:00 - 9:10",
+      "speaker1": {
+        "title": "Welcome",
+        "non-talk?": true
+      }
+    },
+    {
+      "time": "2019-11-22 0910",
+      "start-end": "9:10 - 9:50",
+      "speaker1": {
+        "speaker": "Gene Kim",
+        "title": "TBD",
+        "link": "https://2019.clojure-conj.org/speaker-gene-kim/"
+      }
+    },
+    {
+      "time": "2019-11-22 1000",
+      "start-end": "10:00 - 10:40",
+      "speaker1": {
+        "speaker": "Chris Nuernberger",
+        "title": "Extending Clojure with Python",
+        "link": "https://2019.clojure-conj.org/chris-nuernberger/"
+      },
+      "speaker2": {
+        "speaker": "Avi Flax",
+        "title": "(Architecture) Diagrams as Data",
+        "link": "https://2019.clojure-conj.org/speaker-avi-flax/"
+      }
+    },
+    {
+      "time": "2019-11-22 1050",
+      "start-end": "10:50 - 11:30",
+      "speaker1": {
+        "speaker": "Alexander Yakushev",
+        "title": "A New Age of JVM Garbage Collectors",
+        "link": "https://2019.clojure-conj.org/speaker-alexander-yakushev/"
+      },
+      "speaker2": {
+        "speaker": "Chris Oakman",
+        "title": "Probabilistic Record Linkage of Hospital Patients",
+        "link": "https://2019.clojure-conj.org/speaker-chris-oakman/"
+      }
+    },
+    {
+      "time": "2019-11-22 1130",
+      "start-end": "11:30 - 1:00",
+      "speaker1": {
+        "speaker": "Lunch",
+        "non-talk?": true
+      }
+    },
+    {
+      "time": "2019-11-22 1300",
+      "start-end": "1:00 - 1:40",
+      "speaker1": {
+        "speaker": "Pier Federico Gherardini & Ben Kamphaus",
+        "title": "Clojure Where it Counts: Tidying Data Science Workflows",
+        "link": "https://2019.clojure-conj.org/speaker-pier-federico-gherardini/"
+      },
+      "speaker2": {
+        "speaker": "Wilker Silva",
+        "title": "The Maximal Graph",
+        "link": "https://2019.clojure-conj.org/speaker-wilker-silva/"
+      }
+    },
+    {
+      "time": "2019-11-22 1350",
+      "start-end": "1:50 - 2:30PM",
+      "speaker1": {
+        "speaker": "Dennis Heihoff",
+        "title": "The Embodied Runtime",
+        "link": "https://2019.clojure-conj.org/speaker-dennis-heihoff/"
+      },
+      "speaker2": {
+        "speaker": "Eno Compton & Tyler van Hensbergen",
+        "title": "Goodbye YAML: Infrastructure as Code in Clojure",
+        "link": "https://2019.clojure-conj.org/speaker-eno-compton/"
+      }
+    },
+    {
+      "time": "2019-11-22 1440",
+      "start-end": "2:40 - 3:20",
+      "speaker1": {
+        "speaker": "Tom Toor",
+        "title": "Why Build Solutions with Fulcro",
+        "link": "https://2019.clojure-conj.org/speaker-tom-toor"
+      },
+      "speaker2": {
+        "speaker": "Scarlet Spectacular",
+        "title": "Ghost in the Generative Shell",
+        "link": "https://2019.clojure-conj.org/speaker-scarlet-spectacular/"
+      }
+    },
+    {
+      "time": "2019-11-22 1520",
+      "start-end": "3:20 - 3:50",
+      "speaker1": {
+        "speaker": "Break",
+        "non-talk?": true
+      }
+    },
+    {
+      "time": "2019-11-22 1550",
+      "start-end": "3:50 - 4:30",
+      "speaker1": {
+        "speaker": "Thomas Gebert & Nick Misturak",
+        "title": "Distributed Hash Tables, Video, and Fun!",
+        "link": "https://2019.clojure-conj.org/speaker-thomas-gebert/"
+      }
+    },
+    {
+      "time": "2019-11-22 1640",
+      "start-end": "4:40 - 5:30",
+      "speaker1": {
+        "speaker": "Matthew Flatt",
+        "title": "A Racket Perspective on Research, Education, and Production",
+        "link": "https://2019.clojure-conj.org/keynote-speaker-matthew-flatt/"
+      }
+    },
+    {
+      "time": "2019-11-22 1900",
+      "start-end": "7:00 - 10:00",
+      "speaker1": {
+        "speaker": "Party at Boxcar Arcade",
+        "non-talk?": true,
+        "link": "https://goo.gl/maps/WQafmxzZZjYRNqtb8"
+      }
+    }
+  ],
+  "nov-23": [
+    {
+      "time": "2019-11-23 0900",
+      "start-end": "9:00 - 9:10",
+      "speaker1": {
+        "speaker": "Welcome",
+        "non-talk?": true
+      }
+    },
+    {
+      "time": "2019-11-23 0910",
+      "start-end": "9:10 - 9:50",
+      "speaker1": {
+        "speaker": "Philipp Meier",
+        "title": "A magic trashcan - microprocessors for full stack developers",
+        "link": "https://2019.clojure-conj.org/speaker-philipp-meier/"
+      }
+    },
+    {
+      "time": "2019-11-23 1000",
+      "start-end": "10:00 - 10:40",
+      "speaker1": {
+        "speaker": "Sara Kimmich",
+        "title": "Rapid Prototyping for Software Development",
+        "link": "https://2019.clojure-conj.org/speaker-sara-kimmich/"
+      }
+    },
+    {
+      "time": "2019-11-23 1050",
+      "start-end": "10:50 - 11:30",
+      "speaker1": {
+        "speaker": "Ulrich Schaechtle",
+        "title": "Inference QL:  Al for data engineers in Clojure",
+        "link": "https://2019.clojure-conj.org/speaker-ulrich-schaechtle/"
+      }
+    },
+    {
+      "time": "2019-11-23 1140",
+      "start-end": "11:40 - 12:10",
+      "speaker1": {
+        "speaker": "Alex Miller",
+        "title": "Composable Tools"
+      }
+    }
+  ]
+}

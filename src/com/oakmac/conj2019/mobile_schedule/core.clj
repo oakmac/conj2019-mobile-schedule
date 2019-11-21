@@ -43,6 +43,38 @@
 ;     :start-end "11:30 - 1:00pm"
 ;     :title "Lunch"}})
 
+
+; (def unsessions
+;   {""
+;    ["7:00 - 7:50PM" [{:speaker "Rui Hayashi"
+;                        :title "Micro services interaction verification"
+;                        :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#contract-based-micro-services-interaction-verification-with-clojure"
+;                       {:speaker "Alan Thompson"
+;                        :title "Processing Tree-like Data with Tupelo Forest"
+;                        :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#zippers-and-lenses-and-postwalk-oh-my--processing-tree-like-data-with-tupelo-forest"}
+;                       {:speaker "Room 1 Open"
+;                        :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions"}}]]
+;    "b"
+;    ["8:00 - 8:50PM" [{:speaker "Jason Felice"
+;                        :title "Graal & Command-Line Tooling"
+;                        :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#clojure-at-the-shell-graal--command-line-tooling"
+;                        {:speaker "Jim Duey"
+;                         :title "Update on Toccata"
+;                         :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#update-on-toccata"}
+;                        {:speaker "Room 1 Open"
+;                         :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions"}}]]
+;
+;    "a"
+;    ["9:00 - 9:50PM" [{:speaker "Aaron Iba"
+;                        :title "ClojureScript + React Native Apps"
+;                        :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#clojure-at-the-shell-graal--command-line-tooling"
+;                        {:speaker "Jim Duey"
+;                         :title "zprint"
+;                         :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions#update-on-toccata"}
+;                        {:speaker "Room 1 Open"
+;                         :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions"}}]]})
+
+
 (def schedule
  {:nov-21
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
@@ -92,56 +124,110 @@
     [{:speaker "Stuart Halloway",
       :title "Sherlock Holmes, Consulting Developer",
       :link "https://2019.clojure-conj.org/speaker-stuart-halloway"}]]
-   ["7:00 - 10:00PM" [{:speaker "Unsessions / Lightning Talks" :non-talk? true}]]]
+   ["7:00 - 10:00PM" [{:speaker "Unsessions / Lightning Talks"
+                       :link "https://github.com/clojureconj/clojureconj2019/wiki/Unsessions"}]]]
 
   :nov-22
-  [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
+  [; ["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
+   {:time "2019-11-21 0900"
+    :start-end "9:00 - 9:10"
+    :speaker1 {:title "Welcome"
+               :non-talk? true}}
 
-   ["9:10 - 9:50AM" [{:speaker "Gene Kim"
-                      :title "TBD"
-                      :link "https://2019.clojure-conj.org/speaker-gene-kim/"}]]
+   ; ["9:10 - 9:50AM" [{:speaker "Gene Kim"
+   ;                    :title "TBD"
+   ;                    :link}]]  "https://2019.clojure-conj.org/speaker-gene-kim/"
+   {:time "2019-11-21 0910"
+    :start-end "9:10 - 9:50"
+    :speaker1 {:speaker "Gene Kim"
+               :title "TBD"
+               :link "https://2019.clojure-conj.org/speaker-gene-kim/"}}
 
-   ["10:00 - 10:40AM" [{:speaker "Chris Nuernberger"
-                        :title "Extending Clojure with Python"
-                        :link "https://2019.clojure-conj.org/chris-nuernberger/"}
-                       {:speaker "Avi Flax"
-                        :title "(Architecture) Diagrams as Data"
-                        :link "https://2019.clojure-conj.org/speaker-avi-flax/"}]]
+   ; ["10:00 - 10:40AM" [{:speaker "Chris Nuernberger"
+   ;                      :title "Extending Clojure with Python"
+   ;                      :link "https://2019.clojure-conj.org/chris-nuernberger/"}
+   ;                     {:speaker "Avi Flax"
+   ;                      :title "(Architecture) Diagrams as Data"
+   ;                      :link "https://2019.clojure-conj.org/speaker-avi-flax/"}]]
+   {:time "2019-11-21 1000"
+    :start-end "10:00 - 10:40"
+    :speaker1 {:speaker "Chris Nuernberger"
+               :title "Extending Clojure with Python"
+               :link "https://2019.clojure-conj.org/chris-nuernberger/"}
+    :speaker2 {:speaker "Avi Flax"
+               :title "(Architecture) Diagrams as Data"
+               :link "https://2019.clojure-conj.org/speaker-avi-flax/"}}
 
-   ["10:50 - 11:30AM" [{:speaker "Alexander Yakushev"
-                        :title "A New Age of JVM Garbage Collectors"
-                        :link "https://2019.clojure-conj.org/speaker-alexander-yakushev/"}
-                       {:speaker "Chris Oakman"
-                        :title "Probabilistic Record Linkage of Hospital Patients"
-                        :link "https://2019.clojure-conj.org/speaker-chris-oakman/"}]]
 
-   ["11:30 - 1:00PM" [{:speaker "Lunch" :title ""}]]
-   ["1:00 - 1:40PM" [{:speaker "Pier Federico Gherardini & Ben Kamphaus"
-                      :title "Clojure Where it Counts: Tidying Data Science Workflows"
-                      :link "https://2019.clojure-conj.org/speaker-pier-federico-gherardini/"}
-                     {:speaker "Wilker Silva"
-                      :title "The Maximal Graph"
-                      :link "http://2019.clojure-conj.org/speaker-wilker-silva/"}]]
-   ["1:50 - 2:30PM" [{:speaker "Dennis Heihoff"
-                      :title "The Embodied Runtime"
-                      :link "https://2019.clojure-conj.org/speaker-dennis-heihoff/"}
-                     {:speaker "Eno Compton & Tyler van Hensbergen"
-                      :title "Goodbye YAML: Infrastructure as Code in Clojure"
-                      :link "http://2019.clojure-conj.org/speaker-eno-compton/"}]]
+   ; ["10:50 - 11:30AM" [{:speaker "Alexander Yakushev"
+   ;                      :title "A New Age of JVM Garbage Collectors"
+   ;                      :link "https://2019.clojure-conj.org/speaker-alexander-yakushev/"}
+   ;                     {:speaker "Chris Oakman"
+   ;                      :title "Probabilistic Record Linkage of Hospital Patients"
+   ;                      :link "https://2019.clojure-conj.org/speaker-chris-oakman/"}]]
+   {:time "2019-11-21 1050"
+    :start-end "10:50 - 11:30"
+    :speaker1 {:speaker "Alexander Yakushev"
+               :title "A New Age of JVM Garbage Collectors"
+               :link "https://2019.clojure-conj.org/speaker-alexander-yakushev/"}
+    :speaker2 {:speaker "Chris Oakman"
+                :title "Probabilistic Record Linkage of Hospital Patients"
+                :link "https://2019.clojure-conj.org/speaker-chris-oakman/"}}
+
+   ; ["11:30 - 1:00PM" [{:speaker "Lunch" :title ""}]]
+   {:time "2019-11-21 1130"
+    :start-end "11:30 - 1:00"
+    :speaker1 {:speaker "Lunch"
+               :non-talk? true}}
+
+   ; ["1:00 - 1:40PM" [{:speaker "Pier Federico Gherardini & Ben Kamphaus"
+   ;                    :title "Clojure Where it Counts: Tidying Data Science Workflows"
+   ;                    :link "https://2019.clojure-conj.org/speaker-pier-federico-gherardini/"}
+   ;                   {:speaker "Wilker Silva"
+   ;                    :title "The Maximal Graph"
+   ;                    :link "https://2019.clojure-conj.org/speaker-wilker-silva/"}]]
+   {:time "2019-11-21 1300"
+    :start-end "1:00 - 1:40"
+    :speaker1 {:speaker "Pier Federico Gherardini & Ben Kamphaus"
+               :title "Clojure Where it Counts: Tidying Data Science Workflows"
+               :link "https://2019.clojure-conj.org/speaker-pier-federico-gherardini/"}
+    :speaker2 {:speaker "Wilker Silva"
+                :title "The Maximal Graph"
+                :link "https://2019.clojure-conj.org/speaker-wilker-silva/"}}
+
+   ; ["1:50 - 2:30PM" [{:speaker "Dennis Heihoff"
+   ;                    :title "The Embodied Runtime"
+   ;                    :link "https://2019.clojure-conj.org/speaker-dennis-heihoff/"}
+   ;                   {:speaker "Eno Compton & Tyler van Hensbergen"
+   ;                    :title "Goodbye YAML: Infrastructure as Code in Clojure"
+   ;                    :link "https://2019.clojure-conj.org/speaker-eno-compton/"}]]
+   {:time "2019-11-21 1350"
+    :start-end "1:50 - 2:30PM"
+    :speaker1 {:speaker "Dennis Heihoff"
+               :title "The Embodied Runtime"
+               :link "https://2019.clojure-conj.org/speaker-dennis-heihoff/"}
+    :speaker2 {:speaker "Eno Compton & Tyler van Hensbergen"
+               :title "Goodbye YAML: Infrastructure as Code in Clojure"
+               :link "https://2019.clojure-conj.org/speaker-eno-compton/"}}
+
    ["2:40 - 3:20PM" [{:speaker "Tom Toor"
                       :title "Why Build Solutions with Fulcro"
                       :link "https://2019.clojure-conj.org/speaker-tom-toor"}
                      {:speaker "Scarlet Spectacular"
                       :title "Ghost in the Generative Shell"
-                      :link "http://2019.clojure-conj.org/speaker-scarlet-spectacular/"}]]
+                      :link "https://2019.clojure-conj.org/speaker-scarlet-spectacular/"}]]
+
    ["3:20 - 3:50PM" [{:speaker "Break" :title "" :non-talk? true}]]
+
    ["3:50 - 4:30PM" [{:speaker "Thomas Gebert & Nick Misturak"
                       :title "Distributed Hash Tables, Video, and Fun!"
                       :link "https://2019.clojure-conj.org/speaker-thomas-gebert/"}]]
+
    ["4:40 - 5:30PM" [{:speaker "Matthew Flatt"
                       :title "A Racket Perspective on Research, Education, and Production"
                       :link "https://2019.clojure-conj.org/keynote-speaker-matthew-flatt/"}]]
-   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade" :non-talk? true}]]]
+   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade" :non-talk? true
+                       :link "https://goo.gl/maps/WQafmxzZZjYRNqtb8"}]]]
 
   :nov-23
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
@@ -158,7 +244,7 @@
                         :title "Composable Tools"}]]]})
 
 (defhtml talk-cell [{:keys [speaker title link non-talk?]}]
-  [:div (when non-talk? {:style "font-style: italic;"})
+  [:div (when non-talk? {:style "font-style: italic; text-align: center;"})
    [:div (if link
            [:a {:href link} speaker]
            speaker)]
@@ -173,10 +259,15 @@
              (str/lower-case (:title second-speaker "")))
         (str/replace " " ""))))
 
+(defn- extract-time [time-string]
+  (-> (str/split time-string #" ")
+      first))
+
 (defhtml table-row [[time speakers]]
-  (let [two-tracks? (= 2 (count speakers))]
+  (let [two-tracks? (nth speakers 1 false)]
     [:tr {:class "searchable"
           :data-searchtxt (build-search-txt speakers)}
+          ; :data-time (extract-time time)}
       [:td {:style "text-align: left; font-size: 14px;"} time]
       [:td (when-not two-tracks? {:colspan 2}) (talk-cell (first speakers))]
       (when two-tracks?
@@ -198,7 +289,23 @@
     (thead)
     (tbody schedule-items)])
 
-(def official-schedule-url "https://2019.clojure-conj.org/speakers/")
+; (defhtml unsessions-thead []
+;   [:thead
+;     [:tr
+;       [:th]
+;       [:th "Ballroom A-B"]
+;       [:th "Ballroom C-D"]]])
+;
+; (defn unsessions-tbody [items]
+;   [:tbody
+;    (map table-row items)])
+;
+; (defhtml unsessions-table [schedule-items]
+;   [:table.table.is-striped.is-narrow.is-fullwidth.is-bordered
+;     (unsessions-thead)
+;     (unsessions-tbody schedule-items)])
+
+(def official-schedule-url "https://2019.clojure-conj.org/schedule/")
 (def speakers-list-url "https://2019.clojure-conj.org/speakers/")
 
 (def zepto-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js")
@@ -224,10 +331,16 @@
   [:div#noSearchResultsMsg.notification {:style "display: none;"}
     "No search results :-("])
 
-(defhtml day-section [day-title schedule]
-  [:div.day-section {:style "margin-bottom: 20px"}
+(defhtml day-section [section-id day-title schedule]
+  [:div.day-section {:id section-id
+                     :style "margin-bottom: 20px"}
     [:h4.title.is-6 day-title]
     (schedule-table schedule)])
+
+; (defhtml unsessions-section [day-title schedule]
+;   [:div.day-section {:style "margin-bottom: 20px"}
+;     [:h4.title.is-6 day-title]
+;     (unsessions-table schedule)])
 
 (defhtml body []
   [:body
@@ -241,9 +354,10 @@
         (toolbar)
         (no-search-results-msg)
         ; (day-section "Wednesday - Nov 20, 2019" (:nov-20 schedule))
-        (day-section "Thursday - Nov 21, 2019" (:nov-21 schedule))
-        (day-section "Friday - Nov 22, 2019" (:nov-22 schedule))
-        (day-section "Saturday - Nov 23, 2019" (:nov-23 schedule))]]
+        (day-section "thuSection" "Thursday - Nov 21, 2019" (:nov-21 schedule))
+        ; (unsessions-section "Thursday Evening - Unsessions" (:unsessions schedule))
+        (day-section "friSection" "Friday - Nov 22, 2019" (:nov-22 schedule))
+        (day-section "satSection" "Saturday - Nov 23, 2019" (:nov-23 schedule))]]
     (clientside-js)])
 
 (def bulma-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
