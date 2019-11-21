@@ -121,19 +121,19 @@
                       :link "https://2019.clojure-conj.org/speaker-pier-federico-gherardini/"}
                      {:speaker "Wilker Silva"
                       :title "The Maximal Graph"
-                      :link "https://2019.clojure-conj.org/speaker-chris-oakman/"}]]
+                      :link "http://2019.clojure-conj.org/speaker-wilker-silva/"}]]
    ["1:50 - 2:30PM" [{:speaker "Dennis Heihoff"
                       :title "The Embodied Runtime"
                       :link "https://2019.clojure-conj.org/speaker-dennis-heihoff/"}
                      {:speaker "Eno Compton & Tyler van Hensbergen"
                       :title "Goodbye YAML: Infrastructure as Code in Clojure"
-                      :link "https://2019.clojure-conj.org/speaker-wilker-silva/"}]]
+                      :link "http://2019.clojure-conj.org/speaker-eno-compton/"}]]
    ["2:40 - 3:20PM" [{:speaker "Tom Toor"
                       :title "Why Build Solutions with Fulcro"
                       :link "https://2019.clojure-conj.org/speaker-tom-toor"}
                      {:speaker "Scarlet Spectacular"
                       :title "Ghost in the Generative Shell"
-                      :link "https://2019.clojure-conj.org/speaker-eno-compton/"}]]
+                      :link "http://2019.clojure-conj.org/speaker-scarlet-spectacular/"}]]
    ["3:20 - 3:50PM" [{:speaker "Break" :title "" :non-talk? true}]]
    ["3:50 - 4:30PM" [{:speaker "Thomas Gebert & Nick Misturak"
                       :title "Distributed Hash Tables, Video, and Fun!"
@@ -214,7 +214,7 @@
 
 (defhtml toolbar []
   [:div {:style "display: flex; margin-top: -10px; margin-bottom: 20px;"}
-    [:div {:style "flex: 3;"}
+    [:div {:style "flex: 2;"}
       [:input#searchBar.input {:type "text" :placeholder "Search …"}]]])
     ; [:div {:style "flex: 1; margin-left: 10px"}
     ;   [:button#hidePastEventsBtn.button.is-secondary {:style "display:none"} "Hide Past Events"]
@@ -226,14 +226,14 @@
 
 (defhtml day-section [day-title schedule]
   [:div.day-section {:style "margin-bottom: 20px"}
-    [:h4.title.is-4 day-title]
+    [:h4.title.is-6 day-title]
     (schedule-table schedule)])
 
 (defhtml body []
   [:body
-    [:section.section {:style "padding: 1rem"}
+    [:section.section {:style "padding: 1rem 0.5rem"}
       [:div.container
-        [:h1.title.is-3 "2019 Clojure/conj Schedule"]
+        [:h1.title.is-4 "2019 Clojure/conj Schedule"]
         [:h5.subtitle.is-6
           [:a {:href official-schedule-url} "Official Schedule"]
           [:span {:style "display: inline-block; margin: 0 10px;"} "—"]
