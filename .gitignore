@@ -1,0 +1,8 @@
+.lein-repl-history
+.nrepl-port
+target/
+
+node_modules/
+
+*.diff
+patients.json
