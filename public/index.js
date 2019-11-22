@@ -56,11 +56,15 @@ function keyupSearchBar (evt) {
 function clickHideBtn () {
   $('#showPastEventsBtn').show()
   $('#hidePastEventsBtn').hide()
+
+  $('#thuSection').hide()
 }
 
 function clickShowBtn () {
   $('#showPastEventsBtn').hide()
   $('#hidePastEventsBtn').show()
+
+  $('#thuSection').show()
 }
 
 function addEvents () {

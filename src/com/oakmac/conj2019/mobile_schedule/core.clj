@@ -98,7 +98,7 @@
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
 
    ["9:10 - 9:50AM" [{:speaker "Gene Kim"
-                      :title "TBD"
+                      :title "My Love Letter to Clojure: And A Datomic Experience Report"
                       :link "https://2019.clojure-conj.org/speaker-gene-kim/"}]]
 
    ["10:00 - 10:40AM" [{:speaker "Chris Nuernberger"
@@ -141,7 +141,8 @@
    ["4:40 - 5:30PM" [{:speaker "Matthew Flatt"
                       :title "A Racket Perspective on Research, Education, and Production"
                       :link "https://2019.clojure-conj.org/keynote-speaker-matthew-flatt/"}]]
-   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade" :non-talk? true}]]]
+   ["7:00 - 10:00PM" [{:speaker "Party at Boxcar Arcade" :non-talk? true
+                       :link "https://goo.gl/maps/WQafmxzZZjYRNqtb8"}]]]
 
   :nov-23
   [["9:00 - 9:10AM" [{:speaker "Welcome" :non-talk? true}]]
@@ -215,17 +216,20 @@
 (defhtml toolbar []
   [:div {:style "display: flex; margin-top: -10px; margin-bottom: 20px;"}
     [:div {:style "flex: 2;"}
-      [:input#searchBar.input {:type "text" :placeholder "Search …"}]]])
-    ; [:div {:style "flex: 1; margin-left: 10px"}
-    ;   [:button#hidePastEventsBtn.button.is-secondary {:style "display:none"} "Hide Past Events"]
-    ;   [:button#showPastEventsBtn.button.is-secondary "Show Past Events"]]])
+      [:input#searchBar.input {:type "text" :placeholder "Search …"}]]
+    [:div {:style "flex: 1; margin-left: 10px"}
+      [:button#hidePastEventsBtn.button.is-secondary {:style "display:none"} "Hide Previous Days"]
+      [:button#showPastEventsBtn.button.is-secondary "Show Previous Days"]]])
 
 (defhtml no-search-results-msg []
   [:div#noSearchResultsMsg.notification {:style "display: none;"}
     "No search results :-("])
 
-(defhtml day-section [day-title schedule]
-  [:div.day-section {:style "margin-bottom: 20px"}
+(defhtml day-section [section-id day-title schedule]
+  [:div.day-section {:id section-id
+                     :style (str "margin-bottom: 20px;"
+                                 (when (= section-id "thuSection")
+                                   "display: none;"))}
     [:h4.title.is-6 day-title]
     (schedule-table schedule)])
 
@@ -241,9 +245,9 @@
         (toolbar)
         (no-search-results-msg)
         ; (day-section "Wednesday - Nov 20, 2019" (:nov-20 schedule))
-        (day-section "Thursday - Nov 21, 2019" (:nov-21 schedule))
-        (day-section "Friday - Nov 22, 2019" (:nov-22 schedule))
-        (day-section "Saturday - Nov 23, 2019" (:nov-23 schedule))]]
+        (day-section "thuSection" "Thursday - Nov 21, 2019" (:nov-21 schedule))
+        (day-section "friSection" "Friday - Nov 22, 2019" (:nov-22 schedule))
+        (day-section "satSection" "Saturday - Nov 23, 2019" (:nov-23 schedule))]]
     (clientside-js)])
 
 (def bulma-cdn-url "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css")
